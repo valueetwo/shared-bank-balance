@@ -2,308 +2,234 @@
 <html lang="id">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tabungan Bersama</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard Tabungan Bersama</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page-shell">
-    <aside class="sidebar">
-      <div class="logo-wrap">
-        <div class="logo-heart">♡</div>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">♡</div>
+      <div>
+        <h2>Tabungan<br>Bersama</h2>
+        <p>Small Steps<br>Bigger Dreams<br>Together ♡</p>
+      </div>
+    </div>
+
+    <nav class="menu">
+      <button class="menu-item active" data-page="home"><span>⌂</span>Home</button>
+      <button class="menu-item" data-page="manual"><span>▤</span>Transaksi Manual</button>
+      <button class="menu-item" data-page="match"><span>◔</span>Pencocokan</button>
+      <button class="menu-item" data-page="report"><span>▥</span>Laporan</button>
+      <button class="menu-item" data-page="settings"><span>⚙</span>Pengaturan</button>
+    </nav>
+
+    <div class="sidebar-art">
+      <div class="side-couple">
+        <div class="chibi boy">👦🏻</div>
+        <div class="mid-heart">♡</div>
+        <div class="chibi girl">👧🏻</div>
+      </div>
+      <div class="hand">Keuangan<br>lebih baik<br>ketika kita<br>bersama ♡</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <section class="page active" id="home">
+      <div class="topbar">
+        <div class="search">⌕ <span>Cari sesuatu... (Ctrl + K)</span></div>
+        <div class="profile">
+          <div class="bell">♢</div>
+          <div class="mini-avatar">👫🏻</div>
+          <div><b>Kita Bersama</b><small>Lebih Baik Setiap Hari ♡</small></div>
+        </div>
+      </div>
+
+      <header class="hero">
+        <div class="hero-copy">
+          <h1>Dashboard Tabungan Bersama <span>♡</span></h1>
+          <p>Pantau transaksi otomatis yang tercatat dari rekening kita berdua.</p>
+        </div>
+        <div class="hero-quote">
+          <div class="quote">“Hal-hal besar<br>berawal dari<br>langkah kecil<br>yang kita lakukan bersama. ♡”</div>
+          <div class="hero-couple">
+            <div class="bubble boy-bubble">👦🏻</div>
+            <div class="cat">🐱</div>
+            <div class="bubble girl-bubble">👧🏻</div>
+          </div>
+        </div>
+      </header>
+
+      <section class="kpis">
+        <article class="kpi blue">
+          <div class="icon">💳</div>
+          <div><small>Total Saldo Bersama</small><strong id="kpi-balance">Rp 0</strong><span>Hasil kerja keras kita ♡</span></div>
+        </article>
+        <article class="kpi green">
+          <div class="icon">↗</div>
+          <div><small>Uang Masuk</small><strong id="kpi-in">Rp 0</strong><span>Total uang masuk</span></div>
+        </article>
+        <article class="kpi pink">
+          <div class="icon">↘</div>
+          <div><small>Uang Keluar</small><strong id="kpi-out">Rp 0</strong><span>Total uang keluar</span></div>
+        </article>
+        <article class="kpi purple">
+          <div class="icon">◎</div>
+          <div><small>Sisa Tabungan</small><strong id="kpi-left">Rp 0</strong><span>Masih ada banyak mimpi ♡</span></div>
+        </article>
+      </section>
+
+      <section class="auto-head">
         <div>
-          <div class="logo-title">Tabungan<br>Bersama</div>
-          <div class="logo-sub">Small Steps<br>Bigger Dreams<br>Together ♡</div>
+          <h2>⚡ Transaksi Otomatis</h2>
+          <p>Transaksi yang tercatat otomatis dari rekening masing-masing pihak.</p>
         </div>
-      </div>
-
-      <nav class="nav">
-        <button class="nav-btn active" data-page="home">
-          <span class="nav-ico">⌂</span><span>Home</span>
-        </button>
-        <button class="nav-btn" data-page="manual">
-          <span class="nav-ico">▤</span><span>Transaksi Manual</span>
-        </button>
-        <button class="nav-btn" data-page="match">
-          <span class="nav-ico">◔</span><span>Pencocokan</span>
-        </button>
-        <button class="nav-btn" data-page="report">
-          <span class="nav-ico">▥</span><span>Laporan</span>
-        </button>
-        <button class="nav-btn" data-page="settings">
-          <span class="nav-ico">⚙</span><span>Pengaturan</span>
-        </button>
-      </nav>
-
-      <div class="side-art">
-        <div class="couple-mini">
-          <span class="avatar-boy">👦🏻</span>
-          <span class="heart-mini">♡</span>
-          <span class="avatar-girl">👧🏻</span>
-        </div>
-        <div class="side-quote">Keuangan<br>lebih baik<br>ketika kita<br>bersama ♡</div>
-      </div>
-    </aside>
-
-    <main class="main">
-      <!-- HOME -->
-      <section class="view active" id="view-home">
-        <header class="hero">
-          <div>
-            <h1>Dashboard Tabungan Bersama <span>♡</span></h1>
-            <p>Pantau transaksi otomatis dengan lebih mudah dan rapi.</p>
-          </div>
-          <div class="hero-art">
-            <div class="cloud"></div>
-            <div class="couple-card">
-              <span class="boy-face">👦🏻</span>
-              <span class="tiny-cat">🐱</span>
-              <span class="girl-face">👧🏻</span>
-            </div>
-            <div class="scribble">Tujuan besar lebih mudah dicapai<br>ketika dilakukan bersama ♡</div>
-          </div>
-        </header>
-
-        <section class="summary-grid">
-          <article class="kpi kpi-blue">
-            <div class="kpi-icon">💳</div>
-            <div><small>Total Saldo Bersama</small><strong id="total-balance">Rp 0</strong><span>Untuk mimpi-mimpi kita ♡</span></div>
-          </article>
-          <article class="kpi kpi-green">
-            <div class="kpi-icon">↗</div>
-            <div><small>Uang Masuk</small><strong id="total-in">Rp 0</strong><span>Total dana yang masuk</span></div>
-          </article>
-          <article class="kpi kpi-pink">
-            <div class="kpi-icon">↘</div>
-            <div><small>Uang Keluar</small><strong id="total-out">Rp 0</strong><span>Total pengeluaran kita</span></div>
-          </article>
-          <article class="kpi kpi-purple">
-            <div class="kpi-icon">◎</div>
-            <div><small>Sisa Tabungan</small><strong id="total-saving">Rp 0</strong><span>Masih banyak mimpi yang bisa diraih ♡</span></div>
-          </article>
-        </section>
-
-        <div class="section-head">
-          <div>
-            <h2>Transaksi Otomatis</h2>
-            <p>Data contoh dari bank / e-wallet</p>
-          </div>
-          <div class="blend-pill"><span class="blue-dot"></span> cowok <b>♡</b> cewek <span class="pink-dot"></span></div>
-        </div>
-
-        <section class="split-grid">
-          <article class="person-panel boy-panel">
-            <div class="person-header">
-              <div class="person-id">
-                <div class="avatar-ring boy-ring">👦🏻</div>
-                <div><h3>Pihak Cowok 💙</h3><p>Langkah kecil, masa depan besar ♡</p></div>
-              </div>
-              <span class="tag blue-tag">Otomatis</span>
-            </div>
-
-            <div class="person-kpis">
-              <div><small>Uang Masuk</small><strong id="boy-in">Rp 0</strong></div>
-              <div><small>Uang Keluar</small><strong id="boy-out">Rp 0</strong></div>
-              <div><small>Sisa Tabungan</small><strong id="boy-left">Rp 0</strong></div>
-            </div>
-
-            <div class="table-card">
-              <table>
-                <thead><tr><th>Tanggal</th><th>Jenis</th><th>Nominal</th><th>Keterangan</th><th>Sumber</th></tr></thead>
-                <tbody id="boy-auto"></tbody>
-              </table>
-            </div>
-          </article>
-
-          <article class="person-panel girl-panel">
-            <div class="person-header">
-              <div class="person-id">
-                <div class="avatar-ring girl-ring">👧🏻</div>
-                <div><h3>Pihak Cewek 🩷</h3><p>Sedikit demi sedikit, kita sampai jauh ♡</p></div>
-              </div>
-              <span class="tag pink-tag">Otomatis</span>
-            </div>
-
-            <div class="person-kpis">
-              <div><small>Uang Masuk</small><strong id="girl-in">Rp 0</strong></div>
-              <div><small>Uang Keluar</small><strong id="girl-out">Rp 0</strong></div>
-              <div><small>Sisa Tabungan</small><strong id="girl-left">Rp 0</strong></div>
-            </div>
-
-            <div class="table-card">
-              <table>
-                <thead><tr><th>Tanggal</th><th>Jenis</th><th>Nominal</th><th>Keterangan</th><th>Sumber</th></tr></thead>
-                <tbody id="girl-auto"></tbody>
-              </table>
-            </div>
-          </article>
-        </section>
-
-        <section class="manual-banner">
-          <div class="manual-icon">▤</div>
-          <div class="manual-copy">
-            <h3>Transaksi Manual</h3>
-            <p>Catat transaksi cash, patungan, atau transaksi yang terlewat di halaman manual.</p>
-          </div>
-          <button class="btn btn-pink" data-go="manual">♡ Buka Halaman Manual →</button>
-        </section>
-
-        <section class="balance-section">
-          <div class="section-head">
-            <div><h2>Pencocokan Balance</h2><p>Bandingkan saldo otomatis dan manual.</p></div>
-            <button class="btn-link" data-go="match">Lihat Detail →</button>
-          </div>
-
-          <div class="balance-grid">
-            <article class="balance-card boy-balance">
-              <h3>👦🏻 Pihak Cowok</h3>
-              <div class="line"><span>Saldo Otomatis</span><b id="boy-auto-balance">Rp 0</b></div>
-              <div class="line"><span>Saldo Manual</span><b id="boy-manual-balance">Rp 0</b></div>
-              <div class="line diff-line"><span>Selisih</span><b id="boy-diff">Rp 0</b></div>
-              <div class="status" id="boy-status">—</div>
-            </article>
-
-            <article class="balance-card girl-balance">
-              <h3>👧🏻 Pihak Cewek</h3>
-              <div class="line"><span>Saldo Otomatis</span><b id="girl-auto-balance">Rp 0</b></div>
-              <div class="line"><span>Saldo Manual</span><b id="girl-manual-balance">Rp 0</b></div>
-              <div class="line diff-line"><span>Selisih</span><b id="girl-diff">Rp 0</b></div>
-              <div class="status" id="girl-status">—</div>
-            </article>
-
-            <article class="balance-card total-together">
-              <h3>🐱 Total Bersama</h3>
-              <div class="line"><span>Saldo Otomatis</span><b id="all-auto-balance">Rp 0</b></div>
-              <div class="line"><span>Saldo Manual</span><b id="all-manual-balance">Rp 0</b></div>
-              <div class="line diff-line"><span>Selisih</span><b id="all-diff">Rp 0</b></div>
-
-              <div class="contribution-title">Sumbangsih ke Total Bersama</div>
-              <div class="contribution-row">
-                <div class="contrib-person"><span>👦🏻 Cowok</span><b id="boy-pct">0%</b></div>
-                <div class="contrib-person"><span>👧🏻 Cewek</span><b id="girl-pct">0%</b></div>
-              </div>
-              <div class="dual-progress">
-                <div id="boy-progress"></div><div id="girl-progress"></div>
-              </div>
-            </article>
-          </div>
-        </section>
+        <div class="datebox">▣ 01 Sep 2026 – 30 Sep 2026⌄</div>
       </section>
 
-      <!-- MANUAL -->
-      <section class="view" id="view-manual">
-        <header class="simple-header">
-          <div>
-            <h1>Transaksi Manual <span>♡</span></h1>
-            <p>Catat transaksi tambahan dengan mudah dan fleksibel.</p>
-          </div>
-          <button class="btn btn-blue" id="add-manual">+ Catat Manual</button>
-        </header>
-
-        <section class="summary-grid manual-summary">
-          <article class="kpi kpi-blue"><div class="kpi-icon">▤</div><div><small>Total Catatan Manual</small><strong id="manual-count">0</strong><span>Transaksi yang dicatat</span></div></article>
-          <article class="kpi kpi-green"><div class="kpi-icon">↗</div><div><small>Masuk Manual</small><strong id="manual-in">Rp 0</strong><span>Total uang masuk</span></div></article>
-          <article class="kpi kpi-pink"><div class="kpi-icon">↘</div><div><small>Keluar Manual</small><strong id="manual-out">Rp 0</strong><span>Total uang keluar</span></div></article>
-          <article class="kpi kpi-purple"><div class="kpi-icon">Σ</div><div><small>Sisa Manual</small><strong id="manual-left">Rp 0</strong><span>Masuk - keluar</span></div></article>
-        </section>
-
-        <section class="split-grid">
-          <article class="person-panel boy-panel">
-            <div class="person-header"><div class="person-id"><div class="avatar-ring boy-ring">👦🏻</div><div><h3>Pihak Cowok 💙</h3><p>Catatan manual pihak cowok</p></div></div></div>
-            <div class="table-card">
-              <table>
-                <thead><tr><th>Tanggal</th><th>Jenis</th><th>Nominal</th><th>Keterangan</th><th>Sumber</th><th>Aksi</th></tr></thead>
-                <tbody id="boy-manual"></tbody>
-              </table>
+      <section class="people">
+        <article class="person-panel boy-panel">
+          <div class="person-top">
+            <div class="who">
+              <div class="avatar-card blue-avatar">👦🏻</div>
+              <div><h3>Pihak Cowok 💙</h3><p>Disiplin hari ini, masa depan kita nanti. ♡</p></div>
             </div>
-          </article>
-          <article class="person-panel girl-panel">
-            <div class="person-header"><div class="person-id"><div class="avatar-ring girl-ring">👧🏻</div><div><h3>Pihak Cewek 🩷</h3><p>Catatan manual pihak cewek</p></div></div></div>
-            <div class="table-card">
-              <table>
-                <thead><tr><th>Tanggal</th><th>Jenis</th><th>Nominal</th><th>Keterangan</th><th>Sumber</th><th>Aksi</th></tr></thead>
-                <tbody id="girl-manual"></tbody>
-              </table>
-            </div>
-          </article>
-        </section>
-
-        <section class="info-card">
-          <div class="info-cat">🐱</div>
-          <div>
-            <h3>Tentang Transaksi Manual</h3>
-            <p>Gunakan halaman ini untuk transaksi cash, patungan, pengeluaran yang terlewat, atau koreksi. Semua catatan manual akan ikut dibandingkan di halaman Pencocokan.</p>
+            <div class="note blue-note">“Tetap semangat<br>untuk mimpi kita<br>bersama!! ♡”</div>
           </div>
-        </section>
-      </section>
-
-      <!-- MATCH -->
-      <section class="view" id="view-match">
-        <header class="simple-header">
-          <div><h1>Pencocokan <span>♡</span></h1><p>Bandingkan data otomatis dan manual supaya perbedaan lebih mudah ditemukan.</p></div>
-        </header>
-
-        <section class="summary-grid match-summary" id="match-summary"></section>
-
-        <section class="balance-grid match-balance" id="match-balance"></section>
-
-        <section class="check-table-section">
-          <div class="section-head">
-            <div><h2>Transaksi yang Perlu Dicek</h2><p>Data berbeda akan diberi warna merah.</p></div>
+          <div class="mini-kpis">
+            <div class="m green"><span>↗</span><small>Uang Masuk</small><b id="boy-in">Rp 0</b></div>
+            <div class="m pink"><span>↘</span><small>Uang Keluar</small><b id="boy-out">Rp 0</b></div>
+            <div class="m purple"><span>♙</span><small>Sisa Tabungan</small><b id="boy-left">Rp 0</b></div>
           </div>
-          <div class="table-card">
+          <div class="table-wrap">
             <table>
-              <thead><tr><th>Tanggal</th><th>Pihak</th><th>Jenis</th><th>Otomatis</th><th>Manual</th><th>Selisih</th><th>Keterangan</th><th>Status</th></tr></thead>
-              <tbody id="diff-table"></tbody>
+              <thead><tr><th>Tanggal</th><th>Deskripsi</th><th>Jumlah</th><th>Sumber</th><th>Status</th></tr></thead>
+              <tbody id="boy-auto"></tbody>
             </table>
           </div>
-        </section>
-      </section>
+          <div class="more blue-more">Lihat semua transaksi cowok →</div>
+        </article>
 
-      <!-- REPORT -->
-      <section class="view" id="view-report">
-        <header class="simple-header"><div><h1>Laporan <span>♡</span></h1><p>Ringkasan sederhana untuk tabungan bersama.</p></div></header>
-        <section class="report-grid">
-          <article class="report-card"><span>Saldo Otomatis</span><strong id="report-auto">Rp 0</strong></article>
-          <article class="report-card"><span>Saldo Manual</span><strong id="report-manual">Rp 0</strong></article>
-          <article class="report-card report-warn"><span>Selisih</span><strong id="report-diff">Rp 0</strong></article>
-        </section>
-      </section>
-
-      <!-- SETTINGS -->
-      <section class="view" id="view-settings">
-        <header class="simple-header"><div><h1>Pengaturan <span>♡</span></h1><p>Atur nama dan data contoh project.</p></div></header>
-        <section class="settings-card">
-          <label>Nama Pihak Cowok<input id="boy-name" value="Pihak Cowok"></label>
-          <label>Nama Pihak Cewek<input id="girl-name" value="Pihak Cewek"></label>
-          <div class="settings-actions">
-            <button class="btn btn-blue" id="save-settings">Simpan</button>
-            <button class="btn btn-danger" id="reset-manual">Reset Data Manual</button>
+        <article class="person-panel girl-panel">
+          <div class="person-top">
+            <div class="who">
+              <div class="avatar-card pink-avatar">👧🏻</div>
+              <div><h3>Pihak Cewek 🩷</h3><p>Hal kecil yang kita lakukan, berarti besar untuk kita. ♡</p></div>
+            </div>
+            <div class="note pink-note">“Terima kasih<br>sudah selalu<br>ada. ♡”</div>
           </div>
-        </section>
+          <div class="mini-kpis">
+            <div class="m green"><span>↗</span><small>Uang Masuk</small><b id="girl-in">Rp 0</b></div>
+            <div class="m pink"><span>↘</span><small>Uang Keluar</small><b id="girl-out">Rp 0</b></div>
+            <div class="m purple"><span>♙</span><small>Sisa Tabungan</small><b id="girl-left">Rp 0</b></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Tanggal</th><th>Deskripsi</th><th>Jumlah</th><th>Sumber</th><th>Status</th></tr></thead>
+              <tbody id="girl-auto"></tbody>
+            </table>
+          </div>
+          <div class="more pink-more">Lihat semua transaksi cewek →</div>
+        </article>
       </section>
-    </main>
-  </div>
 
-  <dialog id="manual-dialog">
-    <form id="manual-form">
-      <div class="dialog-head">
-        <div><small>TRANSAKSI MANUAL</small><h2 id="dialog-title">Catat Manual</h2></div>
-        <button type="button" class="close-btn" id="close-dialog">×</button>
-      </div>
-      <input type="hidden" id="edit-id">
-      <label>Pihak<select id="form-person"><option value="boy">Pihak Cowok</option><option value="girl">Pihak Cewek</option></select></label>
-      <label>Tanggal<input type="date" id="form-date" required></label>
-      <label>Jenis<select id="form-type"><option value="in">Masuk</option><option value="out">Keluar</option></select></label>
-      <label>Nominal<input type="number" id="form-amount" min="0" step="1000" placeholder="500000" required></label>
-      <label>Keterangan<input type="text" id="form-note" placeholder="Contoh: Parkir, cashback, patungan" required></label>
-      <div class="dialog-actions"><button type="button" class="btn btn-soft" id="cancel-dialog">Batal</button><button class="btn btn-pink" type="submit">Simpan</button></div>
-    </form>
-  </dialog>
+      <section class="manual-banner">
+        <div class="cat-badge">🐱</div>
+        <div class="manual-copy">
+          <h3>Transaksi Manual</h3>
+          <p>Catat transaksi tambahan seperti uang tunai, patungan, atau pengeluaran yang belum tercatat otomatis.</p>
+          <small>Semua catatan manual akan tetap dihitung dalam tabungan bersama.</small>
+        </div>
+        <button class="manual-btn" data-go="manual">Buka Halaman Manual →</button>
+        <div class="manual-note">Setiap<br>rincian berarti<br>untuk kita ♡</div>
+      </section>
 
-  <script src="app.js"></script>
+      <section class="balance-section">
+        <div class="balance-title">
+          <div><h2>⚖ Pencocokan Balance</h2><p>Pastikan semua transaksi sudah sesuai antara kedua pihak.</p></div>
+        </div>
+        <div class="balance-grid">
+          <article class="match-card blue-soft">
+            <div class="match-head"><span>👦🏻</span><h3>Pihak Cowok</h3><div class="ok-pill" id="boy-pill">Sudah cocok! ♡</div></div>
+            <div class="row"><span>Total Masuk</span><b id="boy-total-in">Rp 0</b></div>
+            <div class="row"><span>Total Keluar</span><b id="boy-total-out">Rp 0</b></div>
+            <div class="row"><span>Sisa Tabungan</span><b id="boy-sisa">Rp 0</b></div>
+            <div class="row mismatch"><span>Selisih dengan catatan manual</span><b id="boy-match-diff">Rp 0</b></div>
+          </article>
+
+          <article class="match-card pink-soft">
+            <div class="match-head"><span>👧🏻</span><h3>Pihak Cewek</h3><div class="warn-pill" id="girl-pill">Ada selisih</div></div>
+            <div class="row"><span>Total Masuk</span><b id="girl-total-in">Rp 0</b></div>
+            <div class="row"><span>Total Keluar</span><b id="girl-total-out">Rp 0</b></div>
+            <div class="row"><span>Sisa Tabungan</span><b id="girl-sisa">Rp 0</b></div>
+            <div class="row mismatch"><span>Selisih dengan catatan manual</span><b id="girl-match-diff">Rp 0</b></div>
+          </article>
+
+          <article class="match-card together">
+            <div class="match-head"><span class="heart-block">♡</span><h3>Total Bersama</h3></div>
+            <div class="row"><span>Total Saldo</span><b id="together-total">Rp 0</b></div>
+            <div class="row"><span>Total Uang Masuk</span><b class="green-text" id="together-in">Rp 0</b></div>
+            <div class="row"><span>Total Uang Keluar</span><b class="red-text" id="together-out">Rp 0</b></div>
+            <div class="contrib-labels"><span>Sumbangsih Cowok <b id="boy-pct">0%</b></span><span>Sumbangsih Cewek <b id="girl-pct">0%</b></span></div>
+            <div class="progress"><div class="p-blue" id="boy-progress"></div><div class="p-pink" id="girl-progress"></div></div>
+            <div class="together-note">Dua bagian, satu tujuan ♡</div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="manual">
+      <header class="simple-head">
+        <div><h1>Transaksi Manual ♡</h1><p>Catat transaksi tambahan, cash, patungan, atau koreksi.</p></div>
+        <button class="add-btn" id="open-dialog">+ Catat Manual</button>
+      </header>
+      <section class="manual-summary">
+        <div><small>Total Catatan Manual</small><b id="manual-count">0</b></div>
+        <div><small>Masuk Manual</small><b id="manual-in">Rp 0</b></div>
+        <div><small>Keluar Manual</small><b id="manual-out">Rp 0</b></div>
+        <div><small>Sisa Manual</small><b id="manual-left">Rp 0</b></div>
+      </section>
+      <section class="people">
+        <article class="person-panel boy-panel"><h3>👦🏻 Pihak Cowok</h3><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Jenis</th><th>Jumlah</th><th>Keterangan</th><th>Aksi</th></tr></thead><tbody id="boy-manual"></tbody></table></div></article>
+        <article class="person-panel girl-panel"><h3>👧🏻 Pihak Cewek</h3><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Jenis</th><th>Jumlah</th><th>Keterangan</th><th>Aksi</th></tr></thead><tbody id="girl-manual"></tbody></table></div></article>
+      </section>
+    </section>
+
+    <section class="page" id="match">
+      <header class="simple-head"><div><h1>Pencocokan ♡</h1><p>Data berbeda akan diberi warna merah.</p></div></header>
+      <div id="match-summary" class="manual-summary"></div>
+      <div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Pihak</th><th>Jenis</th><th>Otomatis</th><th>Manual</th><th>Selisih</th><th>Keterangan</th><th>Status</th></tr></thead><tbody id="diff-table"></tbody></table></div>
+    </section>
+
+    <section class="page" id="report">
+      <header class="simple-head"><div><h1>Laporan ♡</h1><p>Ringkasan tabungan bersama.</p></div></header>
+      <div class="manual-summary"><div><small>Saldo Otomatis</small><b id="report-auto">Rp 0</b></div><div><small>Saldo Manual</small><b id="report-manual">Rp 0</b></div><div><small>Selisih</small><b id="report-diff">Rp 0</b></div></div>
+    </section>
+
+    <section class="page" id="settings">
+      <header class="simple-head"><div><h1>Pengaturan ♡</h1><p>Atur data tampilan.</p></div></header>
+      <div class="settings-card"><button class="add-btn" id="reset-manual">Reset Data Manual</button></div>
+    </section>
+  </main>
+</div>
+
+<dialog id="manual-dialog">
+  <form id="manual-form">
+    <div class="dialog-head"><div><small>TRANSAKSI MANUAL</small><h2 id="dialog-title">Catat Manual</h2></div><button type="button" id="close-dialog">×</button></div>
+    <input type="hidden" id="edit-id">
+    <label>Pihak<select id="form-person"><option value="boy">Pihak Cowok</option><option value="girl">Pihak Cewek</option></select></label>
+    <label>Tanggal<input type="date" id="form-date" required></label>
+    <label>Jenis<select id="form-type"><option value="in">Masuk</option><option value="out">Keluar</option></select></label>
+    <label>Nominal<input type="number" id="form-amount" min="0" required></label>
+    <label>Keterangan<input type="text" id="form-note" required></label>
+    <div class="dialog-actions"><button type="button" class="soft-btn" id="cancel-dialog">Batal</button><button class="manual-btn" type="submit">Simpan</button></div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
 </body>
 </html>

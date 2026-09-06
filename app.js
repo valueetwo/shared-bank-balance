@@ -61,3 +61,67 @@ form.addEventListener("submit",e=>{e.preventDefault();const id=document.getEleme
 document.addEventListener("click",e=>{const ed=e.target.closest("[data-edit]"),del=e.target.closest("[data-delete]");if(ed){const x=manual.find(i=>i.id===ed.dataset.edit);if(x)openDialog(x)}if(del&&confirm("Hapus transaksi ini?")){manual=manual.filter(i=>i.id!==del.dataset.delete);localStorage.setItem("tbv3_manual",JSON.stringify(manual));renderAll()}});
 document.getElementById("reset-manual").addEventListener("click",()=>{if(confirm("Reset data manual?")){manual=structuredClone(DEFAULT_MANUAL);localStorage.setItem("tbv3_manual",JSON.stringify(manual));renderAll()}});
 renderAll();
+
+function renderMatchCards(){
+  const bA=bal(AUTO,"boy"), bM=bal(manual,"boy"), gA=bal(AUTO,"girl"), gM=bal(manual,"girl");
+  const totalA=bA+gA,totalM=bM+gM;
+  const cards=[
+    {cls:"blue-soft",title:"👦🏻 Pihak Cowok",a:bA,m:bM},
+    {cls:"pink-soft",title:"👧🏻 Pihak Cewek",a:gA,m:gM},
+    {cls:"together",title:"♡ Total Bersama",a:totalA,m:totalM}
+  ];
+  const host=document.getElementById("match-cards");
+  if(!host) return;
+  host.innerHTML=cards.map(c=>{
+    const d=c.m-c.a;
+    return `<article class="match-overview ${c.cls}">
+      <h3>${c.title}</h3>
+      <div class="row"><span>Saldo Otomatis</span><b>${rp(c.a)}</b></div>
+      <div class="row"><span>Saldo Manual</span><b>${rp(c.m)}</b></div>
+      <div class="row mismatch"><span>Selisih</span><b>${rp(d)}</b></div>
+      <div class="${d===0?"ok-pill":"warn-pill"}">${d===0?"✓ Sudah sesuai":"! Perlu Dicek"}</div>
+    </article>`;
+  }).join("");
+}
+
+function renderReportExtra(){
+  const bi=sum(AUTO,"boy","in"),bo=sum(AUTO,"boy","out"),gi=sum(AUTO,"girl","in"),go=sum(AUTO,"girl","out");
+  const bl=bi-bo,gl=gi-go,total=Math.max(1,Math.abs(bl)+Math.abs(gl));
+  const bp=Math.round(Math.abs(bl)/total*100),gp=100-bp;
+  set("report-boy-in",rp(bi));set("report-boy-out",rp(bo));set("report-boy-left",rp(bl));
+  set("report-girl-in",rp(gi));set("report-girl-out",rp(go));set("report-girl-left",rp(gl));
+  set("report-boy-pct",bp+"%");set("report-girl-pct",gp+"%");
+  const bb=document.getElementById("report-boy-bar"),gb=document.getElementById("report-girl-bar");
+  if(bb) bb.style.width=bp+"%"; if(gb) gb.style.width=gp+"%";
+  const target=Number(localStorage.getItem("tbv5_target")||10000000);
+  const pct=Math.min(100,Math.round(Math.max(0,bal(AUTO))/Math.max(1,target)*100));
+  const goal=document.getElementById("goal-bar"); if(goal)goal.style.width=pct+"%";
+  set("goal-text",`${pct}% tercapai dari ${rp(target)}`);
+  const t=document.getElementById("target-saving"); if(t)t.value=target;
+}
+
+function renderV5(){
+  renderMatchCards();
+  renderReportExtra();
+}
+const originalRenderAllV5=renderAll;
+renderAll=function(){ originalRenderAllV5(); renderV5(); };
+
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-add-person]");
+  if(b){
+    openDialog();
+    document.getElementById("form-person").value=b.dataset.addPerson;
+  }
+});
+
+const saveSettingsBtn=document.getElementById("save-settings");
+if(saveSettingsBtn){
+  saveSettingsBtn.addEventListener("click",()=>{
+    const target=Number(document.getElementById("target-saving").value||0);
+    localStorage.setItem("tbv5_target",String(target));
+    alert("Pengaturan disimpan ♡");
+    renderV5();
+  });
+}
+renderAll();
